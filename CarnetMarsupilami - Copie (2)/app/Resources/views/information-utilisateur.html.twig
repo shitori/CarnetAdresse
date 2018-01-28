@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mes informations</title>
+  </head>
+  <body>
+    <h1>Mes informations</h1>
+    <ul>
+      <li> mon âge: {{ app.user.age}} ans</li>
+      <li> ma famille: {{ app.user.famille}} </li>
+      <li> ma race: {{ app.user.race}} </li>
+      <li> ma nourriture préférée: {{ app.user.nourriture}} </li>
+    </ul>
+    <a href="/user/modif-info"><button type="button" name="button">Changer mes informations</button></a>
+    <a href="/user/all-user">Aller à la liste de marsupilamis</a>
+    <br>
+    <h2>Mes amis</h2>
+
+      <ul>{% for user in amis %}
+        <li>{{ user.username }} <a href="/user/{{ user.id }}/informations">X</a></li>
+      {% endfor %}</ul>
+
+      <h4><a href="/logout">Se deconnecter</a></h4>
+  </body>
+</html>

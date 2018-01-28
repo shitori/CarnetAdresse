@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Informations d'un autre marsupilamis</title>
+  </head>
+  <body>
+    <h1>Information de {{user.username}}</h1>
+    <ul>
+      <li> mon âge: {{ user.age}} ans</li>
+      <li> ma famille: {{ user.famille}} </li>
+      <li> ma race: {{ user.race}} </li>
+      <li> ma nourriture préférée: {{ user.nourriture}} </li>
+    </ul>
+
+    <a href="/user/all-user">Aller à la liste de marsupilamis</a>
+    <a href="/user/info">Aller voir mes informations</a>
+    <p> {{etat}}. <a href="/user/{{ user.id }}/informations"><button type="button" name="button">Modifier</button></a></p>
+
+  </body>
+</html>

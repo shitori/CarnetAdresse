@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Liste de tous les marsupilamis</title>
+  </head>
+  <body>
+    <h1>Liste de tous les marsupilamis</h1>
+    {% block body %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Age</th>
+                    <th>Famille</th>
+                    <th>Race</th>
+                    <th>Nourriture</th>
+                    <th>Relation (modification)</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+              {%if (user.id != app.user.id)%}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>{{ user.famille }}</td>
+                    <td>{{ user.race }}</td>
+                    <td>{{ user.nourriture }}</td>
+                    <td><a href="/user/{{ user.id }}/informations"><button type="button" name="button">amis/plus amis</button></a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+      {% endblock %}
+
+      <a href="/user/info">Aller voir mes informations</a>
+
+  </body>
+</html>
