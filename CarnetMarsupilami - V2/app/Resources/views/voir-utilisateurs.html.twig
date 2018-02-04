@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Liste de tous les marsupilamis</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/mystyle.css') }}">
+
+  </head>
+  <body ng-app="test" ng-controller="testControl">
+    <h1>Liste de tous les marsupilamis</h1>
+    <h2 style="text-align:center;"> <a style="text-decoration : none;" href="/user/info">Aller voir mes informations</a></h2> <br>
+
+    <div class="inputFiltre">
+      <input type="text" style="height: 40px;width: 500px;font-size: 150%;text-align:center" ng-model="query" placeholder="Ajouter des filtes ...">
+    </div>
+
+
+{% verbatim%}
+
+    <div class="affAll" ng-repeat="user in infoPerso | filter:query" >
+        <hr>
+      <div  class="infoOneUser">
+        <h2 style="color:green;"> <strong>{{ user.username | uppercase }}</strong> </h3>
+        <p>{{ user.age }} ans | Famille : {{ user.famille }} | Race: {{ user.race }} | Nourriture préférée : {{ user.nourriture }} </p>
+        <p style="color:#616161;"> <strong>{{ user.relation }}</strong>  </p>
+        <p><a href="/user/{{ user.id }}/informations"><button type="button" name="button">Modifier ma relation avec ce marsupalami</button></a></p>
+        <br>
+      </div>
+      <hr>
+    </div>
+{% endverbatim %}
+
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+        <script type="text/javascript">
+            angular.module("test", []).controller("testControl", function($scope, $http) {
+
+              console.log('test');
+                $http.get("{{ asset('bundles/app/js/all.json') }}").success(function (data) {
+                  $scope.infoPerso= data;
+                }).error(function(data, status, headers, config) {
+                  console.log("ouverture impossible");
+                });
+            });
+
+
+        </script>
+  </body>
+</html>

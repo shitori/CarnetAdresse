@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/mystyle.css') }}">
+
+    <title>Informations d'un autre marsupilamis</title>
+  </head>
+  <body>
+    <h1>Information de {{user.username}}</h1>
+    <hr>
+    <div class="contenuUser">
+      <ul>
+        <li> mon âge: {{ user.age}} ans</li>
+        <li> ma famille: {{ user.famille}} </li>
+        <li> ma race: {{ user.race}} </li>
+        <li> ma nourriture préférée: {{ user.nourriture}} </li>
+      </ul>
+      <hr>
+      <p> <strong>{{etat}}.</strong>  <br> <br> <a href="/user/{{ user.id }}/informations"><button type="button" name="button">Modifier</button></a></p>
+      <hr>
+      <a href="/user/all-user">Aller à la liste de marsupilamis</a> |
+      <a href="/user/info">Aller voir mes informations</a>
+    </div>
+
+
+  </body>
+</html>

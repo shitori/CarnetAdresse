@@ -1,0 +1,83 @@
+.notMe{
+  font-size: 150%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.contenuUser{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 150%;
+  text-decoration:none;
+}
+
+.inputInvit{
+  font-size: 110%;
+  background-color: #f9423A;
+  color: white;
+}
+
+.contenuUser button{
+  font-size: 110%;
+  background-color: #f9423A;
+  color: white;
+  margin-top: :20px;
+
+}
+
+.contenuUser li{
+  color: #337ab7;
+}
+
+.contenuUser strong{
+  color: #616161;
+}
+
+.contenuUser h3{
+  color: #616161;
+}
+
+.affAll .infoOneUser{
+  display: inline;
+  position: relative;
+
+}
+
+.infoOneUser {
+
+  text-align: center;
+  position: relative;
+  margin-left: 20px;
+}
+
+.infoOneUser p{
+
+  color: #337ab7;
+}
+
+.inputFiltre{
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+h1 {
+  color: #f9423A;
+  text-align: center;
+}
+
+body a {
+  text-align: center;
+        display : block;
+        text-decoration : none;
+}
+
+body {
+  text-decoration: none;
+  font-family: Raleway,sans-serif;
+}
