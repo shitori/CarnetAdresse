@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Mes informations</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/mystyle.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js" type="text/javascript">
+
+    </script>
+  </head>
+  <body>
+    <h1>Mon Profil</h1>
+    <div class="contenuUser">
+      <hr>
+      <h3>Mes informartions</h3>
+      <ul>
+        <li> mon âge: {{ app.user.age}} ans</li>
+        <li> ma famille: {{ app.user.famille}} </li>
+        <li> ma race: {{ app.user.race}} </li>
+        <li> ma nourriture préférée: {{ app.user.nourriture}} </li>
+      </ul>
+      <a href="/user/modif-info"><button type="button" name="button">Changer mes informations</button></a>
+
+      <br>
+      <hr>
+      <h3>Mes amis</h3>
+
+        <ul>{% for user in amis %}
+          <li>{{ user.username }} <a href="/user/{{ user.id }}/informations">X</a></li>
+        {% endfor %}</ul>
+        <a href="/user/all-user">Aller à la liste de marsupilamis</a><br><br>
+        <hr>
+        <h3>Inviter un ami à rejoindre notre application</h3>
+        <form class="" action="/user/info" method="post">
+          <input type="text" ng-model="nameFriend" name="name" placeholder="saisir son nom">
+          <input type="text" ng-model="mailFriend" name="mail" placeholder="saisir son addresse mail">
+          <br>
+          <br>
+          <label for="content">Contenu du mail</label>
+          <textarea name="content" rows="8" cols="80">{% verbatim%}Bonjour {{nameFriend}},{% endverbatim %}
+Votre amis {{ app.user.username }} vous invite à le rejoindre sur notre application, cliquer sur le lien pour finaliser la creation de votre compte:
+
+http://127.0.0.1:8000/register?idFriend={{app.user.id}}&{% verbatim%}username={{nameFriend}}&mail={{mailFriend}} {% endverbatim %}
+</textarea><br>
+          <input class="inputInvit" type="submit" value="Inviter">
+        </form>
+
+        <hr>
+        <h4><a href="/logout">Se deconnecter</a></h4>
+    </div>
+
+  </body>
+</html>
